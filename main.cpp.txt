@@ -12,7 +12,7 @@ int main() {
     SpeedMonitor monitor(contract, notifier, alert);
 
     monitor.reportSpeed(90);   // No alert
-    monitor.reportSpeed(110);  // Triggers alert
+    monitor.reportSpeed(110);  // 
 
     return 0;
 }

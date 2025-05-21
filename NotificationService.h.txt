@@ -6,5 +6,5 @@
 class NotificationService {
 public:
     virtual void notifyFleetCompany(const std::string& message) = 0;
-    virtual ~NotificationService() = default;
+    
 };

@@ -5,5 +5,5 @@
 class AlertInterface {
 public:
     virtual void showAlertToDriver(const std::string& message) = 0;
-    virtual ~AlertInterface() = default;
+    
 };
