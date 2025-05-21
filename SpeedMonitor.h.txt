@@ -1,0 +1,27 @@
+// SpeedMonitor.h
+//Monitors speed and triggers alerts if the speed limit is exceeded.
+
+
+#include "NotificationService.h"
+#include "AlertInterface.h"
+#include "RentalContract.h"
+#include <memory>
+
+class SpeedMonitor {
+    RentalContract contract;
+    std::shared_ptr<NotificationService> notifier;
+    std::shared_ptr<AlertInterface> alertInterface;
+
+public:
+    SpeedMonitor(const RentalContract& rentalContract,
+                 std::shared_ptr<NotificationService> notif,
+                 std::shared_ptr<AlertInterface> alert)
+        : contract(rentalContract), notifier(std::move(notif)), alertInterface(std::move(alert)) {}
+
+    void reportSpeed(int currentSpeedKmh) {
+        if (currentSpeedKmh > contract.getMaxSpeed()) {
+            notifier->notifyFleetCompany("Vehicle " + contract.getVehicleId() + " speed limit exceeded");
+            alertInterface->showAlertToDriver("You are exceeding the maximum speed limit!");
+        }
+    }
+};

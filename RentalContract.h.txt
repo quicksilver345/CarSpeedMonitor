@@ -1,0 +1,18 @@
+// RentalContract.h
+//contract between a customer and a vehicle rental, with the speed limit.
+
+#include <string>
+
+class RentalContract {
+    std::string customerId;
+    std::string vehicleId;
+    int maxAllowedSpeed;
+
+public:
+    RentalContract(const std::string& customer, const std::string& vehicle, int maxSpeed)
+        : customerId(customer), vehicleId(vehicle), maxAllowedSpeed(maxSpeed) {}
+
+    int getMaxSpeed() const { return maxAllowedSpeed; }
+    const std::string& getCustomerId() const { return customerId; }
+    const std::string& getVehicleId() const { return vehicleId; }
+};

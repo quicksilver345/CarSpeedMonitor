@@ -1,0 +1,13 @@
+// FirebaseNotificationService.h
+//Example to simulate sending a message using Firebase
+
+#include "NotificationService.h"
+#include <iostream>
+
+class FirebaseNotificationService : public NotificationService {
+public:
+    void notifyFleetCompany(const std::string& message) override {
+        //  Firebase API call
+        std::cout << "Firebase Notification to Fleet " << message << std::endl; //For now only print is applied, it can call Firebase API
+    }
+};

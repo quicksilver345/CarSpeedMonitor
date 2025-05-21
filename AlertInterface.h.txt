@@ -1,0 +1,9 @@
+// AlertInterface.h
+//Abstract Class to show warnings/alerts to the driver
+#include <string>
+
+class AlertInterface {
+public:
+    virtual void showAlertToDriver(const std::string& message) = 0;
+    virtual ~AlertInterface() = default;
+};

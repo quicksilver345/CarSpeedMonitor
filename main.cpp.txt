@@ -1,0 +1,18 @@
+// main.cpp
+#include "FirebaseNotificationService.h"
+#include "SimpleAlertInterface.h"
+#include "SpeedMonitor.h"
+
+int main() {
+    RentalContract contract("customer123", "vehicle456", 100); // Limit: 100 km/h
+
+    auto notifier = std::make_shared<FirebaseNotificationService>();
+    auto alert = std::make_shared<SimpleAlertInterface>();
+
+    SpeedMonitor monitor(contract, notifier, alert);
+
+    monitor.reportSpeed(90);   // No alert
+    monitor.reportSpeed(110);  // Triggers alert
+
+    return 0;
+}

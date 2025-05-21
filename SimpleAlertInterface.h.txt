@@ -1,0 +1,12 @@
+// SimpleAlertInterface.h
+//This is to simulate warnings/alerts to the driver
+
+#include "AlertInterface.h"
+#include <iostream>
+
+class SimpleAlertInterface : public AlertInterface {
+public:
+    void showAlertToDriver(const std::string& message) override {
+        std::cout << "Driver Alert " << message << std::endl; //this message can be passed on to Driver CLuster Display
+    }
+};
